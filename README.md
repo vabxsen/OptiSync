@@ -21,4 +21,4 @@ The interface includes curated preview data when Supabase is not configured. Liv
 
 ## Firebase App Hosting
 
-The repository is linked to Firebase project `optisync-net` through `.firebaserc`. App Hosting uses `apphosting.yaml` and Secret Manager references named `supabase-anon-key` and `steam-api-key`. After authenticating with the Firebase CLI, create those secrets and deploy the `optisync` backend. Set `NEXT_PUBLIC_SITE_URL` to the generated App Hosting URL before enabling GitHub OAuth.
+The repository is linked to Firebase project `optisync-net` through `.firebaserc`. App Hosting uses `apphosting.yaml` and a Secret Manager reference named `supabase-anon-key`. After authenticating with the Firebase CLI, create that secret and deploy the `optisync` backend. Set `NEXT_PUBLIC_SITE_URL` to the generated App Hosting URL before enabling GitHub OAuth.

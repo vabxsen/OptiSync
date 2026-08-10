@@ -16,7 +16,3 @@ env:
     availability:
       - BUILD
       - RUNTIME
-  - variable: STEAM_API_KEY
-    secret: steam-api-key
-    availability:
-      - RUNTIME
