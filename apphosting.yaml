@@ -1,0 +1,22 @@
+runConfig:
+  cpu: 1
+  memoryMiB: 512
+  minInstances: 0
+  maxInstances: 2
+  concurrency: 80
+
+env:
+  - variable: NEXT_PUBLIC_SUPABASE_URL
+    value: https://kpkjiddghnkzofxrzdzj.supabase.co
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: NEXT_PUBLIC_SUPABASE_ANON_KEY
+    secret: supabase-anon-key
+    availability:
+      - BUILD
+      - RUNTIME
+  - variable: STEAM_API_KEY
+    secret: steam-api-key
+    availability:
+      - RUNTIME
