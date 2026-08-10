@@ -1,0 +1,1 @@
+export default function GameLoading() { return <div className="min-h-screen animate-pulse bg-background p-6 lg:pl-[280px]"><div className="h-4 w-36 rounded bg-panel" /><div className="mt-7 h-72 rounded-2xl bg-panel" /><div className="mt-7 h-10 w-80 rounded bg-panel" /><div className="mt-7 h-48 rounded-xl bg-panel" /></div>; }

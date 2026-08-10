@@ -1,0 +1,13 @@
+"use client";
+
+import { useActionState } from "react";
+import { Cpu, Gauge, MonitorCog, Sparkles, UserRound, Zap } from "lucide-react";
+import { completeOnboarding } from "@/actions/auth";
+import { Button } from "@/components/ui/button";
+
+export function OnboardingForm() {
+  const [state, action, pending] = useActionState<{ error?: string }, FormData>(completeOnboarding, {});
+  return <div className="grid-texture min-h-screen bg-[#080a0d] px-6 py-12 text-foreground"><div className="mx-auto flex min-h-[80vh] max-w-[620px] items-center"><div className="w-full"><div className="mb-12 flex items-center gap-2.5"><div className="grid size-8 place-items-center rounded-lg bg-cyan text-[#071013]"><Zap size={17} fill="currentColor" /></div><span className="text-lg font-bold">Opti<span className="text-cyan">Sync</span></span></div><div className="mb-8"><div className="mb-4 flex items-center gap-2 text-[11px] font-bold uppercase tracking-[.18em] text-cyan"><Sparkles size={14} /> Personal baseline</div><h1 className="text-3xl font-semibold tracking-tight text-white md:text-4xl">Let&apos;s tune your signal.</h1><p className="mt-3 max-w-lg text-sm leading-6 text-muted">Tell us about your rig. We&apos;ll use this to surface blueprints that make sense for your hardware.</p></div><form action={action}><div className="grid gap-4 rounded-2xl border border-border/70 bg-panel p-5 md:grid-cols-2 md:p-6"><Field name="username" label="Display name" placeholder="Your handle" icon={UserRound} /><Field name="defaultGpu" label="Graphics card" placeholder="e.g. RTX 4070" icon={Gauge} /><Field name="defaultCpu" label="Processor" placeholder="e.g. Ryzen 7 7800X3D" icon={Cpu} /><Field name="resolution" label="Native resolution" placeholder="e.g. 2560 × 1440" icon={MonitorCog} /><div className="md:col-span-2">{state.error && <p className="text-xs text-red-300">{state.error}</p>}<Button className="mt-3 h-11 w-full md:w-auto" disabled={pending}>{pending ? "Saving baseline..." : "Enter OptiSync"}<Sparkles size={15} /></Button></div></div></form><p className="mt-5 text-center text-xs text-muted">You can update this baseline any time from Settings.</p></div></div></div>;
+}
+
+function Field({ name, label, placeholder, icon: Icon }: { name: string; label: string; placeholder: string; icon: typeof Cpu }) { return <label className="block"><span className="text-xs font-semibold text-[#cdd5dc]">{label}</span><span className="relative mt-2 block"><Icon size={15} className="absolute left-3 top-3 text-muted" /><input name={name} required placeholder={placeholder} className="h-11 w-full rounded-lg border border-border bg-[#0b0e12] pl-10 pr-3 text-sm text-white outline-none placeholder:text-[#5b6874] focus:border-cyan/60" /></span></label>; }
